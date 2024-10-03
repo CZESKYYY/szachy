@@ -26,6 +26,8 @@ function onDrop (source, target) {
   // illegal move
   if (move === null) return 'snapback'
 
+  Socket.emit('move')
+
   updateStatus()
 }
 
