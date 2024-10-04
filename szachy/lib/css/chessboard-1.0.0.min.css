@@ -4,35 +4,76 @@
 html, body
 {
     background-color: #aa9584;
-    height: 100%;
 }
 
 body
 {
     margin: 0;
+    padding: 0;
 }
+
+#wrapper
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 612px 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 60px 612px 60px 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "lewa . . . . ."
+    "lewa . nick1 . . ."
+    "lewa . board . . ."
+    "lewa . nick2 . . ."
+    "lewa . . . . ."; 
+}
+
 
 #left
 {
-    height: 100%;
-    width: 15%;
-    position: static;
+    grid-area: lewa;
     background-color: #292929;
     opacity: 0.5;
 }
 
-#chess
-{
-    position: absolute;
-    top: 15%;
-    left: 25%;
-}
 
 #nick1
 {
-    position: relative;
-    width: 100%;
-    height: 5%;
+    grid-area: nick1;
     background-color: #1a1715;
+    width: 592px;
     border: 10px solid #1a1715;
+    font-size: 30px;
+    color: #aa9584;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+#nick2
+{
+    grid-area: nick2;
+    background-color: #1a1715;
+    width: 592px;
+    border: 10px solid #1a1715;
+    font-size: 30px;
+    color: #aa9584;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+#nick1 p
+{
+    text-align: center;
+    top: 15%;
+    transform: translateY(-85%);
+}
+
+#nick2 p
+{
+    top: 10%;
+    transform: translateY(-90%);
+    text-align: center;
+}
+
+#boardwrapper
+{
+    grid-area: board;
 }
