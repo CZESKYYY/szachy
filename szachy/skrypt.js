@@ -1,8 +1,23 @@
+
+
+const socket = io("wss://localhost:3030", {
+  withCredentials:true,
+  transportOptions:{
+    pooling:{
+      extraHeaders:{
+        "x-h":"test"
+      }
+    }
+  }
+});
+
 var board = null
 var game = new Chess()
 var $status = $('#status')
 var $fen = $('#fen')
 var $pgn = $('#pgn')
+
+
 
 function onDragStart (source, piece, position, orientation) {
   // do not pick up pieces if the game is over
@@ -26,7 +41,7 @@ function onDrop (source, target) {
   // illegal move
   if (move === null) return 'snapback'
 
-  Socket.emit('move')
+ socket.emit('move',source,target);
 
   updateStatus()
 }
