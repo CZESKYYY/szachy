@@ -1,7 +1,5 @@
-
-
-const socket = io("wss://localhost:3030", {
-  withCredentials:true,
+const socket = io("ws://localhost:3030", { // wss wskazuje na protokół zabezpieczony (podobnie jak https), lokalnie ciężko odtworzyć wss
+  withCredentials:true, // to wymaga, żeby na serwerze były podane konkretne adresy, a nie *
   transportOptions:{
     pooling:{
       extraHeaders:{

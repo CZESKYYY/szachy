@@ -2,34 +2,28 @@ const http = require('http'),
       path = require('path'),
       express = require('express'),
       socket = require('socket.io');
-      var cors = require('cors')     
+const cors = require('cors')
+
+const corsOptions = {
+    origin: "http://localhost:5173",  // lokalny adres, który jest używany podczas produkcji; credentials: true wymaga podania konkretnego adresu, a nie *
+        methods: ["GET", "POST"],
+        allowedHeaders: ["x-h"],
+        credentials: true
+}
 
 const config = require('./config');
 
-const myIo = require('./sockets/io'),
-      routes = require('./routes/routes');
 
 const app = express(),
       server = http.Server(app),
       io = socket(server, {
-        cors: {
-          origins: ["*"],
-          handlePreflightRequest: (req,res) => {
-            res.writeHead(200,
-                {
-                    "Access-Control-allow-Origin": "*",
-                    "Access-Control-allow-Methods": "GET,POST",
-                    "Access-Control-allow-Headers":"x-h",
-                    "Access-Control-allow-Credentials": true
-                }
-            );
-            res.end();
-          }
-         
-        }
+        cors: corsOptions
       });
-      app.use(cors())
-      
+      app.use(cors(corsOptions))
+
+const myIo = require('./sockets/io'),
+    routes = require('./routes/routes');
+
 server.listen(config.port);
 
 games = {};
