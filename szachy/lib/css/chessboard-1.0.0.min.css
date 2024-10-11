@@ -18,12 +18,13 @@ body
     grid-template-columns: 1fr 1fr 612px 1fr 1fr 1fr; 
     grid-template-rows: 1fr 60px 612px 60px 1fr; 
     gap: 0px 0px; 
-    grid-template-areas: 
+    grid-template-areas:  
     "lewa . . . . ."
-    "lewa . nick1 . . ."
-    "lewa . board . . ."
-    "lewa . nick2 . . ."
+    "lewa . nick1 notacja . ."
+    "lewa . board notacja . ."
+    "lewa . nick2 notacja . ."
     "lewa . . . . ."; 
+    min-height: 100vh;
 }
 
 
@@ -71,6 +72,13 @@ body
     top: 10%;
     transform: translateY(-90%);
     text-align: center;
+}
+
+#notacja
+{
+    grid-area: notacja;
+    background-color: #faebd3;
+    border: 10px black;
 }
 
 #boardwrapper
