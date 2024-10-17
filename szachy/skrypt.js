@@ -15,8 +15,13 @@ var $status = $('#status')
 var $fen = $('#fen')
 var $pgn = $('#pgn')
 
-
-
+socket.emit("joinGame",{code:"test"});
+socket.on("startGame",function(daneZServera){
+  console.log(daneZServera);
+})
+socket.on("ustawkolor",function(color){
+  console.log(color.color);
+})
 function onDragStart (source, piece, position, orientation) {
   // do not pick up pieces if the game is over
   if (game.game_over()) return false
@@ -38,8 +43,8 @@ function onDrop (source, target) {
 
   // illegal move
   if (move === null) return 'snapback'
-
- socket.emit('move',source,target);
+  //else socket.emit('move',move);
+ 
 
   updateStatus()
 }
