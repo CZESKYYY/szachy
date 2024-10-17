@@ -31,8 +31,23 @@ body
 #left
 {
     grid-area: lewa;
-    background-color: #292929;
-    opacity: 0.5;
+    background-color: rgb(41, 41, 41, 0.5);
+}
+
+#left h1
+{
+    color: #1a1715;
+    text-align: center;
+    text-shadow: 2px 2px #aa9584;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#left li
+{
+    color: #1a1715;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: xx-large;
+    line-height: vh;
 }
 
 
@@ -78,7 +93,10 @@ body
 {
     grid-area: notacja;
     background-color: #faebd3;
-    border: 10px black;
+    border-top: 10px solid #1a1715;
+    border-right: 10px solid #1a1715;
+    border-bottom: 10px solid #1a1715;
+    
 }
 
 #boardwrapper
