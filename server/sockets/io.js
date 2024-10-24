@@ -5,14 +5,12 @@ module.exports = io => {
         
         let currentCode = null;
         
-        socket.on('move', function(move) {
-            console.log('Move received:', move);
-            if (currentCode) {
-                io.to(currentCode).emit('newMove', move);
-                console.log(`Move ${move} emitted to game ${currentCode}`);
-            }
+        socket.on('move',function(msg){
+            socket.broadcast.emit('move',msg)
+        })
+        socket.on("newMove",function(){
+            game.move(move);
         });
-        
         socket.on('joinGame', function(data) {
             console.log(`Joining game with code: ${data.code}`);
             let currentCode = data.code;
@@ -49,6 +47,7 @@ console.log(games)
                 if (games[currentCode].players.length === 0) {
                     delete games[currentCode];
                     console.log(`Game ${currentCode} deleted after disconnect`);
+                    console.log(currentCode);
                 }
             }
         });

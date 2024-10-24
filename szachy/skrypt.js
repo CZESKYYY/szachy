@@ -38,16 +38,22 @@ function onDrop (source, target) {
   var move = game.move({
     from: source,
     to: target,
-    promotion: 'q' // NOTE: always promote to a queen for example simplicity
+    promotion: 'q', // NOTE: always promote to a queen for example simplicity
+    
   })
 
   // illegal move
   if (move === null) return 'snapback'
-  //else socket.emit('move',move);
+  else
+  socket.emit('move',move);
  
 
   updateStatus()
 }
+socket.on('move',function(msg){
+  game.move(msg);
+  board.position(game.fen());
+})
 
 // update the board position after the piece snap
 // for castling, en passant, pawn promotion
