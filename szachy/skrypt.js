@@ -21,6 +21,18 @@ socket.on("startGame",function(daneZServera){
 })
 socket.on("ustawkolor",function(color){
   console.log(color.color);
+  if(color.color==="b"){
+    var config = {
+      draggable: true,
+      position: 'start',
+      onDragStart: onDragStart,
+      onDrop: onDrop,
+      onSnapEnd: onSnapEnd,
+      
+      orientation: "black"
+    }
+    board = Chessboard('board', config)
+  }
 })
 function onDragStart (source, piece, position, orientation) {
   // do not pick up pieces if the game is over
@@ -99,7 +111,9 @@ var config = {
   position: 'start',
   onDragStart: onDragStart,
   onDrop: onDrop,
-  onSnapEnd: onSnapEnd
+  onSnapEnd: onSnapEnd,
+  
+  orientation: "white"
 }
 board = Chessboard('board', config)
 
