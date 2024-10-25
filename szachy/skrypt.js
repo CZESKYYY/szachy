@@ -20,7 +20,6 @@ socket.on("startGame",function(daneZServera){
   console.log(daneZServera);
 })
 socket.on("ustawkolor",function(color){
-  console.log(color.color);
   if(color.color==="b"){
     var config = {
       draggable: true,
@@ -28,21 +27,26 @@ socket.on("ustawkolor",function(color){
       onDragStart: onDragStart,
       onDrop: onDrop,
       onSnapEnd: onSnapEnd,
-      
-      orientation: "black"
+      orientation: "black",
     }
     board = Chessboard('board', config)
   }
 })
+
 function onDragStart (source, piece, position, orientation) {
+
+  if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
+  (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+return false
+}
   // do not pick up pieces if the game is over
   if (game.game_over()) return false
 
-  // only pick up pieces for the side to move
-  if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
-      (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
-    return false
-  }
+  if ((orientation === 'white' && piece.search(/^w/) === -1) ||
+  (orientation === 'black' && piece.search(/^b/) === -1)) {
+e.preventDefault();
+}
+
 }
 
 function onDrop (source, target) {
