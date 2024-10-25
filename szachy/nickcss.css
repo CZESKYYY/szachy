@@ -1,0 +1,46 @@
+body{
+    background-color: #aa9584;
+}
+
+#wrapper
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas:  
+    "lewa . . . . ."
+    "lewa . . . ."
+    "lewa . . formnick formnick ."
+    "lewa . . . ."
+    "lewa . . . . ."; 
+    min-height: 100vh;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+#left
+{
+    grid-area: lewa;
+    background-color: rgb(41, 41, 41, 0.5);
+}
+
+#left h1
+{
+    color: #1a1715;
+    text-align: center;
+    text-shadow: 2px 2px #aa9584;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#left li
+{
+    color: #1a1715;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: xx-large;
+    line-height: vh;
+}
