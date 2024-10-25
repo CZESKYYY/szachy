@@ -116,7 +116,6 @@ var config = {
   onDragStart: onDragStart,
   onDrop: onDrop,
   onSnapEnd: onSnapEnd,
-  
   orientation: "white"
 }
 board = Chessboard('board', config)
