@@ -28,6 +28,7 @@ socket.on("ustawkolor",function(color){
       onDrop: onDrop,
       onSnapEnd: onSnapEnd,
       orientation: "black",
+      showNotation:true
     }
     board = Chessboard('board', config)
   }
@@ -116,7 +117,8 @@ var config = {
   onDragStart: onDragStart,
   onDrop: onDrop,
   onSnapEnd: onSnapEnd,
-  orientation: "white"
+  orientation: "white",
+  shownNotation:true
 }
 board = Chessboard('board', config)
 

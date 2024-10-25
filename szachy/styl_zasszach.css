@@ -1,0 +1,62 @@
+#container {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "lewy king king queen queen rook rook"
+      "lewy bishop bishop horse horse pawn pawn"; 
+      min-height:100vh;
+  }
+  #left
+  {
+      grid-area: lewy;
+      background-color: rgb(41, 41, 41, 0.5);
+  }
+  body{
+    margin:0;
+    padding: 0;
+  }
+  #left h1
+{
+    color: #1a1715;
+    text-align: center;
+    text-shadow: 2px 2px #aa9584;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#left li
+{
+    color: #1a1715;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: xx-large;
+    line-height: vh;
+    padding:3px;
+}
+  #king { 
+    grid-area: king;
+    padding:3px;
+}
+  #queen { 
+    grid-area: queen; 
+    padding:3px;
+}
+  #rook {
+     grid-area: rook;
+     padding:3px;
+
+     }
+  #bishop { 
+    grid-area: bishop;
+    padding:3px;
+ }
+  #horse { 
+    grid-area: horse;
+    padding:3px;
+
+ }
+  #pawn { 
+    grid-area: pawn; 
+    padding:3px;
+}
+
