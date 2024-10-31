@@ -5,6 +5,8 @@
 html, body
 {
     background-color: #aa9584;
+   /* background: rgb(170,149,132);
+    background: radial-gradient(circle, rgba(170,149,132,1) 0%, rgba(241,143,85,1) 51%, rgba(170,149,132,1) 100%);*/
 }
 
 body
@@ -12,6 +14,11 @@ body
     margin: 0;
     padding: 0;
 }
+
+a{
+    color: #aa9584;
+    font-size: smaller;
+  }
 
 #wrapper
 {
@@ -97,7 +104,6 @@ body
     border-top: 10px solid #1a1715;
     border-right: 10px solid #1a1715;
     border-bottom: 10px solid #1a1715;
-    
 }
 
 #boardwrapper

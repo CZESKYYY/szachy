@@ -1,21 +1,30 @@
 #container {
     display: grid; 
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
-    grid-template-rows: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr ; 
     gap: 0px 0px; 
     grid-template-areas: 
       "lewy king king queen queen rook rook"
-      "lewy bishop bishop horse horse pawn pawn"; 
+      "lewy bishop bishop horse horse pawn pawn";
       min-height:100vh;
   }
   #left
   {
       grid-area: lewy;
       background-color: rgb(41, 41, 41, 0.5);
+      text-align: left;
   }
   body{
-    margin:0;
-    padding: 0;
+    margin:0px;
+    padding: 0px;
+    background-color: #aa9584;
+    text-align: center;
+    font-size: 20px;
+
+  }
+  a{
+    color: #aa9584;
+    font-size: smaller;
   }
   #left h1
 {
@@ -33,9 +42,14 @@
     line-height: vh;
     padding:3px;
 }
+img{
+  padding-bottom:10px ;
+}
   #king { 
     grid-area: king;
     padding:3px;
+    align-items: center;
+    text-align: center;
 }
   #queen { 
     grid-area: queen; 
