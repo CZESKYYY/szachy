@@ -20,6 +20,10 @@ a{
     font-size: smaller;
   }
 
+  #board
+  {
+     width: 600px;
+  }
 #wrapper
 {
     display: grid;
