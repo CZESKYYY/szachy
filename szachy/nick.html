@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="nickcss.css">
     <title>Nick</title>
+    <script src="main.js"></script>
 </head>
 <body>
-    <div id="wrapper">
-        <div id="formnick">
-        <form name="myForm" action="nick.html" onsubmit="return validateForm()" method="post">
-        <p id="nickp">Nick:</p> <br><input type="text" name="nickname">
-        <br>
-        <input type="submit" value="Submit">
-        </form>
-        <p id="nickp"></p>
-        </div>
-    
 
-        <div id="left">
+<div id="wrapper">
+    
+    <div id="formnick">
+        <form name="myForm">
+            <p id="nickp">Nick:</p><br>
+                <input type="text" id="nickname"/><br>
+                <button type="button" onclick="formularz();" id="button">Prześlij</button>
+        </form>
+
+        <p id="wynik"></p>
+    </div>
+
+    <div id="left">
         <h1>Szaszki</h1>
         <ul>
           <li>x</li>
@@ -26,19 +29,9 @@
           <li>x</li>
           <li>x</li>
         </ul>
-        </div>
     </div>
 
-        <script>
-            function validateForm() {
-                let x = document.forms["myForm"]["nickname"].value;
-                if (x == "") {
-                document.getElementById("nickp").innerHTML = "Wpisz nick.";
-                return false;
-                }
-            }
 
-        </script>
-        
+</div>
 </body>
 </html>

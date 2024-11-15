@@ -69,15 +69,23 @@ input{
         }
 
     }
-    &[type=submit]
+    
+
+}
+
+#button
     {
         margin-top: 20px;
         font-size: 25px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 
-}
 
+#wynik
+{
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 #nickp
 {
