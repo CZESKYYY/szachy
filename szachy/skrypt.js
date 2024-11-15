@@ -15,6 +15,8 @@ var $status = $('#status')
 var $fen = $('#fen')
 var $pgn = $('#pgn')
 
+socket.on("nick",)
+
 socket.emit("joinGame",{code:"test"});
 socket.on("startGame",function(daneZServera){
   console.log(daneZServera);

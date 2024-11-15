@@ -12,13 +12,19 @@
 <div id="wrapper">
     
     <div id="formnick">
-        <form name="myForm">
+        <form name="myForm" target="_blank" action="nick.html" method="POST">
             <p id="nickp">Nick:</p><br>
                 <input type="text" id="nickname"/><br>
-                <button type="button" onclick="formularz();" id="button">Prześlij</button>
+                <button type="button" onclick="formularz();" onclick=""  id="button">Prześlij</button>
         </form>
-
+        <script>
+            document.getElementById("button").addEventListener("click",myFunction);
+            function myFunction(){
+                window.location.href="http://localhost:5173/";
+            }
+        </script>
         <p id="wynik"></p>
+        
     </div>
 
     <div id="left">
