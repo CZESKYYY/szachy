@@ -48,7 +48,7 @@ function inicjalizacja() {
 
     if ((orientation === 'white' && piece.search(/^w/) === -1) ||
       (orientation === 'black' && piece.search(/^b/) === -1)) {
-      
+        e.preventDefault();
     }
 
   }
