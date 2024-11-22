@@ -1,3 +1,4 @@
+import { Outlet, Link } from "react-router-dom";
 function Login() {
     return (
         <>
@@ -7,7 +8,9 @@ function Login() {
                     <br />
                     <input type="text" id="nickname" />
                     <br />
-                    <button type="button"  id="button">Prześlij</button>
+                    <Link to="/gra">
+                    <button type="button"  id="button" >Prześlij</button>
+                    </Link>
                 </form>
 
                 <p id="wynik"></p>
