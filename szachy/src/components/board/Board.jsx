@@ -1,5 +1,6 @@
 function Board() {
     return (
+        
         <>
             <div id="nick1"><p>nick1</p></div>
 
@@ -8,10 +9,12 @@ function Board() {
 
             <div id="boardwrapper">
 
-                <div id="board"></div>
+                <div id="board" >
+                
+                </div>
             </div>
-
-
+            
+               
 
             <div id="nick2"><p>nick2</p></div>
 
