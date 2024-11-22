@@ -1,0 +1,59 @@
+html, body
+{
+    background-color: #aa9584;
+   /* background: rgb(170,149,132);
+    background: radial-gradient(circle, rgba(170,149,132,1) 0%, rgba(241,143,85,1) 51%, rgba(170,149,132,1) 100%);*/
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    color: #aa9584;
+    font-size: smaller;
+  }
+
+  #board
+  {
+     width: 600px;
+  }
+#wrapper
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 612px 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 60px 612px 60px 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas:  
+    "lewa . . . . ."
+    "lewa . . . . ."
+    "lewa . . . . ."
+    "lewa . . . . ."
+    "lewa . . . . ."; 
+    min-height: 100vh;
+}
+
+
+#left
+{
+    grid-area: lewa;
+    background-color: rgb(41, 41, 41, 0.5);
+    h1
+    {
+        color: #1a1715;
+        text-align: center;
+        text-shadow: 2px 2px #aa9584;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    li
+    {
+        color: #1a1715;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: xx-large;
+        line-height: vh;
+    }
+}
+
+

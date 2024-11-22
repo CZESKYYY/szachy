@@ -4,30 +4,9 @@
     grid-template-rows: 1fr 1fr ; 
     gap: 0px 0px; 
     grid-template-areas: 
-      "lewy king king queen queen rook rook"
-      "lewy bishop bishop horse horse pawn pawn";
+      ". king king queen queen rook rook"
+      ". bishop bishop horse horse pawn pawn";
       min-height:100vh;
-  }
-  #left
-  {
-      grid-area: lewy;
-      background-color: rgb(41, 41, 41, 0.5);
-      text-align: left;
-      h1
-      {
-        color: #1a1715;
-        text-align: center;
-        text-shadow: 2px 2px #aa9584;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-      li
-      {
-        color: #1a1715;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: xx-large;
-        line-height: vh;
-        padding:3px;
-      }
   }
 
 

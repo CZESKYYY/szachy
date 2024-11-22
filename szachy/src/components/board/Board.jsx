@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import "./board.css"
 function Board() {
     useEffect(() => {
         window.inicjalizacja()

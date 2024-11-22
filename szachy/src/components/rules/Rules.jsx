@@ -1,3 +1,5 @@
+import "./styl_zasszach.css";
+
 function Rules() {
     return (
             <>

@@ -9,11 +9,11 @@ body{
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
     gap: 0px 0px; 
     grid-template-areas:  
-    "lewa . . . . ."
-    "lewa . form form form ."
-    "lewa . form form form ."
-    "lewa . . . . ."
-    "lewa . . . . ."; 
+    ". . . . . ."
+    ". . form form form ."
+    ". . form form form ."
+    ". . . . . ."
+    ". . . . . ."; 
     min-height: 100vh;
     min-width: 100vh;
 }
@@ -22,26 +22,6 @@ body
 {
     margin: 0;
     padding: 0;
-}
-
-#left
-{
-    grid-area: lewa;
-    background-color: rgb(41, 41, 41, 0.5);
-    h1
-    {
-        color: #1a1715;
-        text-align: center;
-        text-shadow: 2px 2px #aa9584;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
-    li
-    {
-        color: #1a1715;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: xx-large;
-        line-height: vh;
-    }
 }
 
 
