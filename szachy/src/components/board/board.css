@@ -25,18 +25,18 @@ a{
      width: 600px;
   }
 
-#wrapper
+#wrapper3
 {
     display: grid;
-    grid-template-columns: 1fr 1fr 612px 1fr 1fr 1fr; 
+    grid-template-columns: 1fr 612px 1fr 1fr 1fr; 
     grid-template-rows: 1fr 60px 612px 60px 1fr; 
     gap: 0px 0px; 
     grid-template-areas:  
-    ". . . . . ."
-    ". . nick1 notacja . ."
-    ". . board notacja . ."
-    ". . nick2 notacja . ."
-    ". . . . . ."; 
+    ". . . . ."
+    ". nick1 notacja . ."
+    ". board notacja . ."
+    ". nick2 notacja . ."
+    ". . . . ."; 
     min-height: 100vh;
 }
 #nick1

@@ -1,9 +1,9 @@
 import { Outlet, Link } from "react-router-dom";
 import "./layout.css"
-function Layout(){
+function Layout() {
     return (
         <>
-                    <div id="wrapper">
+            <div id="wrapper">
                 <div id="left">
                     <h1>Szaszki</h1>
                     <ul>
@@ -14,10 +14,12 @@ function Layout(){
                     </ul>
 
                 </div>
+                <div id="kontent">
 
-                <Outlet />
+                    <Outlet />
+                </div>
             </div>
-        
+
         </>
 
     )

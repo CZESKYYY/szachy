@@ -2,9 +2,8 @@ import "./styl_zasszach.css";
 
 function Rules() {
     return (
-            <>
 
-                <div id="container">
+                <div id="wrapper4">
                     <p>
                         
 
@@ -17,7 +16,6 @@ function Rules() {
                     </p>
                 </div>
 
-            </>
         )
 }
 

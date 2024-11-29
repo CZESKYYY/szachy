@@ -27,11 +27,11 @@ a{
     grid-template-rows: 1fr 60px 612px 60px 1fr; 
     gap: 0px 0px; 
     grid-template-areas:  
-    "lewa . . . . ."
-    "lewa . . . . ."
-    "lewa . . . . ."
-    "lewa . . . . ."
-    "lewa . . . . ."; 
+    "lewa kontent kontent kontent kontent kontent"
+    "lewa kontent kontent kontent kontent kontent"
+    "lewa kontent kontent kontent kontent kontent"
+    "lewa kontent kontent kontent kontent kontent"
+    "lewa kontent kontent kontent kontent kontent"; 
     min-height: 100vh;
 }
 
@@ -54,6 +54,11 @@ a{
         font-size: xx-large;
         line-height: vh;
     }
+}
+
+#kontent
+{
+    grid-area: kontent;
 }
 
 

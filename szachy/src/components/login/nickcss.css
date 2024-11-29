@@ -2,18 +2,18 @@ body{
     background-color: #aa9584;
 }
 
-#wrapper
+#wrapper2
 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
     gap: 0px 0px; 
     grid-template-areas:  
-    ". . . . . ."
-    ". . form form form ."
-    ". . form form form ."
-    ". . . . . ."
-    ". . . . . ."; 
+    ". . . . ."
+    ". form form form ."
+    ". form form form ."
+    ". . . . ."
+    ". . . . ."; 
     min-height: 100vh;
     min-width: 100vh;
 }

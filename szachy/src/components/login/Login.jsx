@@ -2,7 +2,7 @@ import { Outlet, Link } from "react-router-dom";
 import "./nickcss.css";
 function Login() {
     return (
-        <>
+        <div id="wrapper2">
             <div id="formnick">
                 <form name="myForm" target="_blank" action="nick.html" method="POST">
                     <p id="nickp">Nick:</p>
@@ -17,7 +17,7 @@ function Login() {
                 <p id="wynik"></p>
 
             </div>
-        </>
+        </div>
     )
 }
 

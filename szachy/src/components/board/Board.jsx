@@ -7,7 +7,7 @@ function Board() {
    
     return (
        
-        <>
+        <div id="wrapper3">
             <div id="nick1"><p>nick1</p></div>
 
 
@@ -30,7 +30,7 @@ function Board() {
                 <div id="pgn"></div>
             </div>
 
-        </>
+        </div>
 
     )
 }
