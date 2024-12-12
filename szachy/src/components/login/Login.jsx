@@ -1,16 +1,25 @@
 import { Outlet, Link } from "react-router-dom";
 function Login() {
+    function wyslijdane(event) 
+    {
+        let wynik = document.getElementById("wynik");
+        let nazwisko = document.getElementById("nickname").value;
+        wynik.innerHTML = "<span style='color: navy'>" + nazwisko + "</span>";
+        window.getSocket().emit("nick", nazwisko)
+        console.log(nazwisko)
+        event.preventDefault();
+    }
     return (
         <>
             <div id="formnick">
-                <form name="myForm"  action="Board.jsx" method="POST">
+                <form  >
                     <p id="nickp">Nick:</p>
                     <br />
-                    <input type="text" id="nickname" />
+                    <input type="text" id="nickname" name="nickname" />
                     <br />
-                    <Link to="/gra">
-                    <button type="button"  id="button" >Prześlij</button>
-                    </Link>
+
+                    <button type="submit" onClick={wyslijdane} id="button" >Prześlij</button>
+
                 </form>
 
                 <p id="wynik"></p>

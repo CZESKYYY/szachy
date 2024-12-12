@@ -1,14 +1,25 @@
-function inicjalizacja() {
-  const socket = io("ws://localhost:3030", { // wss wskazuje na protokół zabezpieczony (podobnie jak https), lokalnie ciężko odtworzyć wss
-    withCredentials: true, // to wymaga, żeby na serwerze były podane konkretne adresy, a nie *
-    transportOptions: {
-      pooling: {
-        extraHeaders: {
-          "x-h": "test"
+let socket;
+window.getSocket = () => {
+
+  if (!socket){
+    socket = io("ws://localhost:3030", { // wss wskazuje na protokół zabezpieczony (podobnie jak https), lokalnie ciężko odtworzyć wss
+      withCredentials: true, // to wymaga, żeby na serwerze były podane konkretne adresy, a nie *
+      transportOptions: {
+        pooling: {
+          extraHeaders: {
+            "x-h": "test"
+          }
         }
       }
-    }
-  });
+    });
+  
+  }
+
+
+  return socket;
+}
+function inicjalizacja() {
+
 
   var board = null
   var game = new Chess()
@@ -129,4 +140,4 @@ function inicjalizacja() {
 }
 
 window.inicjalizacja = inicjalizacja;
-console.log("test")
+console.log()

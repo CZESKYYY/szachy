@@ -6,6 +6,10 @@ module.exports = io => {
         
         let currentCode = null;
         
+        socket.on('nick',function(nazwa){
+            socket.emit('nick',nazwa)
+            console.log("dada")
+        })
         socket.on('move',function(msg){
             socket.broadcast.emit('move',msg)
         })

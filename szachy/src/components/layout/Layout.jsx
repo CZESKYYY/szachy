@@ -1,5 +1,16 @@
 import { Outlet, Link } from "react-router-dom";
-function Layout(){
+import { useNavigate } from "react-router-dom";
+
+let test;
+
+ window.getSocket().on("nick",function(nazwa){
+    if (test) test()
+        console.log(nazwa)
+     })
+ function Layout(){
+     const navigate = useNavigate(); 
+     test = () =>     navigate("/gra");
+    window.getSocket()
     return (
         <>
                     <div id="wrapper">

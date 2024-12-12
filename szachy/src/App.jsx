@@ -1,4 +1,4 @@
-import Board from "./components/board/board"
+import Board from "./components/board/Board"
 import Layout from "./components/layout/Layout";
 import Login from "./components/login/Login"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
