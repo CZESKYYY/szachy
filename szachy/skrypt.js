@@ -19,8 +19,9 @@ window.getSocket = () => {
   return socket;
 }
 function inicjalizacja() {
+if(window.isinitialized ) return;
 
-
+window.isinitialized = true
   var board = null
   var game = new Chess()
   var $status = $('#status')
@@ -32,8 +33,9 @@ function inicjalizacja() {
   socket.emit("joinGame", { code: "test" });
   socket.on("startGame", function (daneZServera) {
     console.log(daneZServera);
+    console.log("daneZServera");
   })
-  socket.on("ustawkolor", function (color) {
+  socket.on("ustawkolor", function (color,przeciwnik) {
     if (color.color === "b") {
       var config = {
         draggable: true,
@@ -44,7 +46,9 @@ function inicjalizacja() {
         orientation: "black",
         showNotation: true
       }
+      
       board = Chessboard('board', config)
+      console.log("Ustaw kolor");
     }
   })
 
@@ -61,7 +65,7 @@ function inicjalizacja() {
       (orientation === 'black' && piece.search(/^b/) === -1)) {
         e.preventDefault();
     }
-
+    console.log("source, piece, position, orientation");
   }
 
   function onDrop(source, target) {
@@ -80,16 +84,19 @@ function inicjalizacja() {
 
 
     updateStatus()
+    console.log("on drop")
   }
   socket.on('move', function (msg) {
     game.move(msg);
     board.position(game.fen());
+    console.log("ruch klient")
   })
 
   // update the board position after the piece snap
   // for castling, en passant, pawn promotion
   function onSnapEnd() {
     board.position(game.fen())
+    console.log("board position")
   }
 
   function updateStatus() {
@@ -98,6 +105,7 @@ function inicjalizacja() {
     var moveColor = 'White'
     if (game.turn() === 'b') {
       moveColor = 'Black'
+      console.log("ruch czarny")
     }
 
     // checkmate?

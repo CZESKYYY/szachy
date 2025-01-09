@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 let otworz_board;
 
  window.getSocket().on("nick",function(nazwa){
-    if (otworz_board) otworz_board(nazwa)
-        console.log(nazwa)
-     })
+     if (otworz_board) otworz_board(nazwa)
+         console.log(nazwa)
+      })
  function Layout(){
      const navigate = useNavigate(); 
      otworz_board = (nazwisko) => {
@@ -14,7 +14,7 @@ let otworz_board;
             setTimeout(() => {
                 
                 let sentnick = document.getElementById("nick1");
-               sentnick.innerHTML = "<span style='color: navy'>" + nazwisko + "</span>";
+               sentnick.innerHTML = "<span style='color: white'>" + nazwisko + "</span>";
             }, 100);
      }
     window.getSocket()

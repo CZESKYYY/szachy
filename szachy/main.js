@@ -6,7 +6,8 @@ function formularz() {
 		let wynik = document.getElementById("wynik");
 		let nazwisko = document.getElementById("nickname").value;
 		wynik.innerHTML = "<span style='color: navy'>" + nazwisko + "</span>";
-		Socket.emit("nick",wynik);
+		Socket.emit("nick",wynik)
+		console.log("nick 123");
 	} else {
 		wynik.innerHTML = "<span style='color: red;'>Wpisz nick.</span>";
 	}

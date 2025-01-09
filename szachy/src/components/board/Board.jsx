@@ -9,14 +9,6 @@ function Board() {
         window.inicjalizacja()
       }, []);
    
-
-      //  socket.on("nick",function(assignnick){
-      //    let sentnick = document.getElementById("nick1");
-      //   sentnick.innerHTML = "<span style='color: navy'>" + assignnick + "</span>";
-
-      // }
-      
-      // )
     return (
        
         <>
