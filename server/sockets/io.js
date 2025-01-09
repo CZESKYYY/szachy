@@ -36,8 +36,8 @@ console.log(games)
             
             // Ensure both players are in the game before starting
             if (games[currentCode].players.length === 2) {
-                io.to(games[currentCode].players[0].id).emit("ustawkolor",{ color: 'w', przeciwnik:games[currentCode].players[1].transNick  })
-                io.to(games[currentCode].players[1].id).emit("ustawkolor",{ color: 'b', przeciwnik:games[currentCode].players[0].transNick })
+                io.to(games[currentCode].players[0].id).emit("ustawkolor",{ color: 'w', przeciwnik: games[currentCode].players[1].transNick  })
+                io.to(games[currentCode].players[1].id).emit("ustawkolor",{ color: 'b', przeciwnik: games[currentCode].players[0].transNick })
                 
                 for (let i = 0; i<2;i++)
                 {

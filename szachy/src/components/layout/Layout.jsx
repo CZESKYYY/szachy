@@ -16,6 +16,7 @@ let otworz_board;
                 let sentnick = document.getElementById("nick1");
                sentnick.innerHTML = "<span style='color: white'>" + nazwisko + "</span>";
             }, 100);
+
      }
     window.getSocket()
     return (

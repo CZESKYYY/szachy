@@ -9,19 +9,26 @@ window.getSocket = () => {
           extraHeaders: {
             "x-h": "test"
           }
+  }}});
+  
+      }
+    
+    
+      return socket;
+    }
+    
+function inicjalizacja() {
+  const socket = io("ws://localhost:3030", { // wss wskazuje na protokół zabezpieczony (podobnie jak https), lokalnie ciężko odtworzyć wss
+    withCredentials: true, // to wymaga, żeby na serwerze były podane konkretne adresy, a nie *
+    transportOptions: {
+      pooling: {
+        extraHeaders: {
+          "x-h": "test"
         }
       }
-    });
-  
-  }
+    }
+  });
 
-
-  return socket;
-}
-function inicjalizacja() {
-if(window.isinitialized ) return;
-
-window.isinitialized = true
   var board = null
   var game = new Chess()
   var $status = $('#status')
@@ -35,8 +42,9 @@ window.isinitialized = true
     console.log(daneZServera);
     console.log("daneZServera");
   })
-  socket.on("ustawkolor", function (color,przeciwnik) {
-    if (color.color === "b") {
+  socket.on("ustawkolor", function (obj) {
+    debugger
+    if (obj.color === "b") {
       var config = {
         draggable: true,
         position: 'start',
@@ -46,10 +54,15 @@ window.isinitialized = true
         orientation: "black",
         showNotation: true
       }
-      
       board = Chessboard('board', config)
-      console.log("Ustaw kolor");
+      console.log("ustaw kolor");
+
+
+      var enemy = obj.przeciwnik;
+      let sentnick2 = document.getElementById("nick2");
+      sentnick2.innerHTML = "<span style='color: white'>" + enemy + "</span>";
     }
+
   })
 
   function onDragStart(source, piece, position, orientation) {
@@ -65,7 +78,7 @@ window.isinitialized = true
       (orientation === 'black' && piece.search(/^b/) === -1)) {
         e.preventDefault();
     }
-    console.log("source, piece, position, orientation");
+    console.log("src, piece, position, orientation");
   }
 
   function onDrop(source, target) {
@@ -84,19 +97,19 @@ window.isinitialized = true
 
 
     updateStatus()
-    console.log("on drop")
+    console.log("on drop");
   }
   socket.on('move', function (msg) {
     game.move(msg);
     board.position(game.fen());
-    console.log("ruch klient")
+    console.log("ruch klient");
   })
 
   // update the board position after the piece snap
   // for castling, en passant, pawn promotion
   function onSnapEnd() {
     board.position(game.fen())
-    console.log("board position")
+    console.log("board position");
   }
 
   function updateStatus() {
@@ -105,7 +118,7 @@ window.isinitialized = true
     var moveColor = 'White'
     if (game.turn() === 'b') {
       moveColor = 'Black'
-      console.log("ruch czarny")
+      console.log("move black");
     }
 
     // checkmate?
@@ -148,4 +161,4 @@ window.isinitialized = true
 }
 
 window.inicjalizacja = inicjalizacja;
-console.log()
+console.log("test")
