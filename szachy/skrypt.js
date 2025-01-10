@@ -18,16 +18,7 @@ window.getSocket = () => {
     }
     
 function inicjalizacja() {
-  const socket = io("ws://localhost:3030", { // wss wskazuje na protokół zabezpieczony (podobnie jak https), lokalnie ciężko odtworzyć wss
-    withCredentials: true, // to wymaga, żeby na serwerze były podane konkretne adresy, a nie *
-    transportOptions: {
-      pooling: {
-        extraHeaders: {
-          "x-h": "test"
-        }
-      }
-    }
-  });
+  const socket = window.getSocket();
 
   var board = null
   var game = new Chess()
@@ -35,7 +26,7 @@ function inicjalizacja() {
   var $fen = $('#fen')
   var $pgn = $('#pgn')
 
-  socket.on("nick",)
+  // socket.on("nick",)
 
   socket.emit("joinGame", { code: "test" });
   socket.on("startGame", function (daneZServera) {
@@ -43,7 +34,6 @@ function inicjalizacja() {
     console.log("daneZServera");
   })
   socket.on("ustawkolor", function (obj) {
-    debugger
     if (obj.color === "b") {
       var config = {
         draggable: true,

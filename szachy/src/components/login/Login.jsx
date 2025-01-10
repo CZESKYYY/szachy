@@ -5,7 +5,7 @@ function Login() {
         let wynik = document.getElementById("wynik");
         let nazwisko = document.getElementById("nickname").value;
         wynik.innerHTML = "<span style='color: navy'>" + nazwisko + "</span>";
-        window.getSocket().emit("nick", nazwisko)
+        window.getSocket().emit("klientUstawiaNick", nazwisko)
         console.log(nazwisko)
         event.preventDefault();
     }
