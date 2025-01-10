@@ -21,7 +21,7 @@ module.exports = io => {
         socket.on('joinGame', function(data) {
             console.log(`Joining game with code: ${data.code}`);
             let currentCode = data.code;
-            socket.join(currentCode);
+             socket.join(currentCode);
             console.log(`Player ${socket.id} joined game: ${currentCode}`);
 
             if (!(currentCode in games)) {

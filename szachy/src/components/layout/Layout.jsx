@@ -18,7 +18,7 @@ let otworz_board;
             }, 100);
 
      }
-    window.getSocket()
+ 
     return (
         <>
                     <div id="wrapper">

@@ -28,6 +28,7 @@ function inicjalizacja() {
       }
     }
   });
+  //const socket = window.getSocket();- to napisal pan nie dziaal przez to poruszanie pionkow ?//?/??
 
   var board = null
   var game = new Chess()
@@ -43,7 +44,6 @@ function inicjalizacja() {
     console.log("daneZServera");
   })
   socket.on("ustawkolor", function (obj) {
-    debugger
     if (obj.color === "b") {
       var config = {
         draggable: true,
