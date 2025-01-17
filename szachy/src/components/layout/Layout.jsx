@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 let otworz_board;
 
- window.getSocket().on("serwerUstawiaNick",function(nazwa){
+ window.getSocket().on("nick",function(nazwa){
      if (otworz_board) otworz_board(nazwa)
          console.log(nazwa)
       })
@@ -18,7 +18,7 @@ let otworz_board;
             }, 100);
 
      }
-     
+ 
     return (
         <>
                     <div id="wrapper">
