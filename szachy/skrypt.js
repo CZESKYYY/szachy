@@ -18,7 +18,8 @@ window.getSocket = () => {
     }
     
 function inicjalizacja() {
-  const socket = window.getSocket();
+
+const socket = window.getSocket();
 
   var board = null
   var game = new Chess()
@@ -41,7 +42,7 @@ function inicjalizacja() {
         onDragStart: onDragStart,
         onDrop: onDrop,
         onSnapEnd: onSnapEnd,
-        orientation: "black",
+        // orientation: "black",
         showNotation: true
       }
       board = Chessboard('board', config)
@@ -90,6 +91,7 @@ function inicjalizacja() {
     console.log("on drop");
   }
   socket.on('move', function (msg) {
+    debugger
     game.move(msg);
     board.position(game.fen());
     console.log("ruch klient");
