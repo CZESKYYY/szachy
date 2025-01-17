@@ -9,6 +9,12 @@ function Login() {
         console.log(nazwisko)
         event.preventDefault();
     }
+
+    if (!window.isJoined) {
+        window.getSocket().emit("joinGame", {code: "test"});
+        window.isJoined = true;
+    }
+
     return (
         <>
             <div id="formnick">

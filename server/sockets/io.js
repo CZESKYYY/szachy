@@ -1,54 +1,63 @@
+let games = {};
 module.exports = io => {
-    let games={};
+
     io.on('connection', socket => {
         console.log('New socket connection');
-        
-        
+
+
         let currentCode = null;
-        
-        socket.on('klientUstawiaNick',function(nazwa){
-            socket.emit('serwerUstawiaNick',nazwa)
+
+        socket.on('klientUstawiaNick', function (nazwa, currentCode) {
+
+            games[currentCode].players.push({
+                id: socket.id,
+                transNick: "podpinany gracz" + socket.id
+            });
+
+            // Ensure both players are in the game before starting
+            if (games[currentCode].players.length === 2) {
+                io.to(games[currentCode].players[0].id).emit("ustawkolor", {
+                    color: 'w',
+                    przeciwnik: games[currentCode].players[1].transNick
+                })
+                io.to(games[currentCode].players[1].id).emit("ustawkolor", {
+                    color: 'b',
+                    przeciwnik: games[currentCode].players[0].transNick
+                })
+
+                for (let i = 0; i < 2; i++) {
+                    io.to(games[currentCode].players[i]).emit("startGame", {mojawlasciwosc: currentCode});
+                }
+                //io.to(currentCode).emit('startGame');
+                console.log(`Game started with code: ${currentCode}`);
+            }
+
+            socket.emit('serwerUstawiaNick', nazwa)
             console.log("own nick")
         })
-        socket.on('move',function(msg){
-            socket.broadcast.emit('move',msg)
+        socket.on('move', function (msg) {
+            socket.broadcast.emit('move', msg)
             console.log("emit ruchu")
         })
-        socket.on("newMove",function(){
+        socket.on("newMove", function () {
             game.move(move);
             console.log("emit nowego ruchu ")
         });
-        socket.on('joinGame', function(data) {
+        socket.on('joinGame', function (data) {
             console.log(`Joining game with code: ${data.code}`);
             let currentCode = data.code;
             socket.join(currentCode);
             console.log(`Player ${socket.id} joined game: ${currentCode}`);
 
             if (!(currentCode in games)) {
-                games[currentCode] = { players: [] }; // Store players and other game data
+                games[currentCode] = {players: []}; // Store players and other game data
                 console.log(`Game created with code: ${currentCode}`);
             }
-console.log(games)
-            games[currentCode].players.push({
-                id: socket.id,
-                transNick: "podpinany gracz" + socket.id
-        });
-            
-            // Ensure both players are in the game before starting
-            if (games[currentCode].players.length === 2) {
-                io.to(games[currentCode].players[0].id).emit("ustawkolor",{ color: 'w', przeciwnik: games[currentCode].players[1].transNick  })
-                io.to(games[currentCode].players[1].id).emit("ustawkolor",{ color: 'b', przeciwnik: games[currentCode].players[0].transNick })
-                
-                for (let i = 0; i<2;i++)
-                {
-                    io.to(games[currentCode].players[i]).emit("startGame",{mojawlasciwosc:currentCode});
-                }
-                //io.to(currentCode).emit('startGame');
-                console.log(`Game started with code: ${currentCode}`);
-            }
+            console.log(games);
+
         });
 
-        socket.on('disconnect', function() {
+        socket.on('disconnect', function () {
             console.log('Socket disconnected:', socket.id);
             if (currentCode) {
                 io.to(currentCode).emit('gameOverDisconnect');
