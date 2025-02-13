@@ -48,7 +48,7 @@ function inicjalizacja() {
                 onDragStart: onDragStart,
                 onDrop: onDrop,
                 onSnapEnd: onSnapEnd,
-                // orientation: "black",
+                 orientation: "black",
                 showNotation: true
             }
             board = Chessboard('board', config)

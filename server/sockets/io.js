@@ -9,6 +9,9 @@ module.exports = io => {
 
         socket.on('klientUstawiaNick', function (nazwa, currentCode) {
 
+            if(!games[currentCode]){
+                games[currentCode] = {players: []}; // Store players and other game data
+            }
             games[currentCode].players.push({
                 id: socket.id,
                 transNick: "podpinany gracz" + socket.id
@@ -16,9 +19,11 @@ module.exports = io => {
 
             // Ensure both players are in the game before starting
             if (games[currentCode].players.length === 2) {
+                console.log("Ustawiam czarny kolor ")
                 io.to(games[currentCode].players[0].id).emit("ustawkolor", {
                     color: 'w',
                     przeciwnik: games[currentCode].players[1].transNick
+                    
                 })
                 io.to(games[currentCode].players[1].id).emit("ustawkolor", {
                     color: 'b',
@@ -34,6 +39,7 @@ module.exports = io => {
 
             socket.emit('serwerUstawiaNick', nazwa)
             console.log("own nick")
+            console.log(games);
         })
         socket.on('move', function (msg) {
             socket.broadcast.emit('move', msg)
@@ -53,7 +59,6 @@ module.exports = io => {
                 games[currentCode] = {players: []}; // Store players and other game data
                 console.log(`Game created with code: ${currentCode}`);
             }
-            console.log(games);
 
         });
 
