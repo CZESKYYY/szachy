@@ -9,6 +9,8 @@ module.exports = io => {
 
         socket.on('klientUstawiaNick', function (nazwa, currentCode) {
 
+           
+            
             if(!games[currentCode]){
                 games[currentCode] = {players: []}; // Store players and other game data
             }
@@ -19,22 +21,25 @@ module.exports = io => {
 
             // Ensure both players are in the game before starting
             if (games[currentCode].players.length === 2) {
-                console.log("Ustawiam czarny kolor ")
+               
+                console.log(JSON.stringify(games[currentCode]))
+
                 io.to(games[currentCode].players[0].id).emit("ustawkolor", {
                     color: 'w',
-                    przeciwnik: games[currentCode].players[1].transNick
+                    // przeciwnik: games[currentCode].players[1].transNick
                     
                 })
+                console.log("Ustawiam czarny kolor ")
                 io.to(games[currentCode].players[1].id).emit("ustawkolor", {
                     color: 'b',
-                    przeciwnik: games[currentCode].players[0].transNick
+                    // przeciwnik: games[currentCode].players[0].transNick
                 })
 
                 for (let i = 0; i < 2; i++) {
                     io.to(games[currentCode].players[i]).emit("startGame", {mojawlasciwosc: currentCode});
                 }
                 //io.to(currentCode).emit('startGame');
-                console.log(`Game started with code: ${currentCode}`);
+                 console.log(`Game started with code: ${currentCode}`);
             }
 
             socket.emit('serwerUstawiaNick', nazwa)
@@ -55,12 +60,13 @@ module.exports = io => {
             socket.join(currentCode);
             console.log(`Player ${socket.id} joined game: ${currentCode}`);
 
-            if (!(currentCode in games)) {
-                games[currentCode] = {players: []}; // Store players and other game data
-                console.log(`Game created with code: ${currentCode}`);
+            // if (!(currentCode in games)) {
+            //     games[currentCode] = {players: []}; // Store players and other game data
+            //     console.log(`Game created with code: ${currentCode}`);
             }
 
-        });
+        //  }
+        );
 
         socket.on('disconnect', function () {
             console.log('Socket disconnected:', socket.id);

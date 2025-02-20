@@ -52,7 +52,7 @@ function inicjalizacja() {
                 showNotation: true
             }
             board = Chessboard('board', config)
-            console.log("ustaw kolor");
+            console.log("ustaw kolor, klient");
 
 
             var enemy = obj.przeciwnik;
