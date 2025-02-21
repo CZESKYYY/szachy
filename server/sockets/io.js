@@ -29,7 +29,7 @@ module.exports = io => {
                     // przeciwnik: games[currentCode].players[1].transNick
                     
                 })
-                console.log("Ustawiam czarny kolor ")
+                console.log("Ustawiam czary kolor ")
                 io.to(games[currentCode].players[1].id).emit("ustawkolor", {
                     color: 'b',
                     // przeciwnik: games[currentCode].players[0].transNick

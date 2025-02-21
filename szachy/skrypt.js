@@ -27,12 +27,8 @@ function inicjalizacja() {
 
     const socket = window.getSocket();
 
-
-    var board = null
-    var game = new Chess()
-    var $status = $('#status')
-    var $fen = $('#fen')
-    var $pgn = $('#pgn')
+    let game = null
+    let board = null
 
     // socket.on("nick",)
 
@@ -41,27 +37,58 @@ function inicjalizacja() {
         console.log("daneZServera");
     })
     socket.on("ustawkolor", function (obj) {
+        let config=null;
         if (obj.color === "b") {
-            var config = {
+             config = {
                 draggable: true,
                 position: 'start',
-                onDragStart: onDragStart,
-                onDrop: onDrop,
-                onSnapEnd: onSnapEnd,
                  orientation: "black",
                 showNotation: true
             }
-            board = Chessboard('board', config)
-            console.log("ustaw kolor, klient");
+        } else{
+            config = {
+                draggable: true,
+                position: 'start',
+                orientation: "white",
+                shownNotation: true
+            }
+        }
+            
+        setTimeout(()=>{
+        let tmp = getboard(config)
+        game = tmp.game
+        board = tmp.board
+        },100)
+
 
 
             var enemy = obj.przeciwnik;
             let sentnick2 = document.getElementById("nick2");
             sentnick2.innerHTML = "<span style='color: white'>" + enemy + "</span>";
-        }
 
     })
 
+    socket.on('move', function (msg) {
+       
+        game.move(msg);
+        board.position(game.fen());
+        console.log("ruch klient");
+    })
+
+    // update the board position after the piece snap
+    // for castling, en passant, pawn promotion
+    
+
+
+}
+
+function getboard(config){
+    
+    var board = null
+    var game = new Chess()
+    var $status = $('#status')
+    var $fen = $('#fen')
+    var $pgn = $('#pgn')
     function onDragStart(source, piece, position, orientation) {
 
         if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
@@ -96,16 +123,6 @@ function inicjalizacja() {
         updateStatus()
         console.log("on drop");
     }
-
-    socket.on('move', function (msg) {
-        debugger
-        game.move(msg);
-        board.position(game.fen());
-        console.log("ruch klient");
-    })
-
-    // update the board position after the piece snap
-    // for castling, en passant, pawn promotion
     function onSnapEnd() {
         board.position(game.fen())
         console.log("board position");
@@ -145,19 +162,21 @@ function inicjalizacja() {
         $pgn.html(game.pgn())
     }
 
-    var config = {
-        draggable: true,
-        position: 'start',
+    board = Chessboard('board', {
+        ...config,
         onDragStart: onDragStart,
         onDrop: onDrop,
         onSnapEnd: onSnapEnd,
-        orientation: "white",
-        shownNotation: true
-    }
-    board = Chessboard('board', config)
+})
 
+    
     updateStatus()
+
+    return{
+        board,game
+    }
 }
 
 window.inicjalizacja = inicjalizacja;
+window.getboard = getboard;
 console.log("test")

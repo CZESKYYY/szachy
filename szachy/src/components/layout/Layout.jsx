@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import React, { useState, useEffect } from 'react';
 let otworz_board;
 
  window.getSocket().on("serwerUstawiaNick",function(nazwa){
@@ -8,6 +8,9 @@ let otworz_board;
          console.log(nazwa)
       })
  function Layout(){
+    useEffect(() => {
+        window.inicjalizacja()
+      }, []);
      const navigate = useNavigate(); 
      otworz_board = (nazwisko) => {
             navigate("/gra");
