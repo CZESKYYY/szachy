@@ -26,13 +26,13 @@ module.exports = io => {
 
                 io.to(games[currentCode].players[0].id).emit("ustawkolor", {
                     color: 'w',
-                    // przeciwnik: games[currentCode].players[1].transNick
+                    przeciwnik: games[currentCode].players[1].transNick
                     
                 })
                 console.log("Ustawiam czary kolor ")
                 io.to(games[currentCode].players[1].id).emit("ustawkolor", {
                     color: 'b',
-                    // przeciwnik: games[currentCode].players[0].transNick
+                    przeciwnik: games[currentCode].players[0].transNick
                 })
 
                 for (let i = 0; i < 2; i++) {
