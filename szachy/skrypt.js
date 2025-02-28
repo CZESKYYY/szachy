@@ -61,7 +61,6 @@ function inicjalizacja() {
         },100)
 
 
-
             var enemy = obj.przeciwnik;
             let sentnick2 = document.getElementById("nick2");
             sentnick2.innerHTML = "<span style='color: white'>" + enemy + "</span>";

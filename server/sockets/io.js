@@ -16,11 +16,12 @@ module.exports = io => {
             }
             games[currentCode].players.push({
                 id: socket.id,
-                transNick: "podpinany gracz" + socket.id
+                transNick: "podpinany gracz " + socket.id
             });
 
-            // Ensure both players are in the game before starting
-            if (games[currentCode].players.length === 2) {
+
+            setTimeout(()=>{
+                if (games[currentCode].players.length === 2) {
                
                 console.log(JSON.stringify(games[currentCode]))
 
@@ -45,6 +46,9 @@ module.exports = io => {
             socket.emit('serwerUstawiaNick', nazwa)
             console.log("own nick")
             console.log(games);
+            }, 200)
+            // Ensure both players are in the game before starting
+            
         })
         socket.on('move', function (msg) {
             socket.broadcast.emit('move', msg)
