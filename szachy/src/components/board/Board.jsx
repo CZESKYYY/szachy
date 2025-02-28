@@ -11,7 +11,7 @@ function Board() {
 receivedNick=window.enemy
   } 
     return (
-       
+       <div id="wrapper3">
         <>
             <div id="nick1">{receivedNick}</div>
 
@@ -36,7 +36,7 @@ receivedNick=window.enemy
             </div>
 
         </>
-
+        </div>
     )
 }
 
