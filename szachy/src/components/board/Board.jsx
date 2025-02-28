@@ -4,7 +4,10 @@ import React, { useState, useEffect } from 'react';
 
 
 function Board() {
-   
+    let receivedNick = ""
+  if(window.enemy){
+receivedNick=window.enemy
+  } 
     return (
        
         <>
@@ -22,7 +25,7 @@ function Board() {
             
                
 
-            <div id="nick2"><p></p></div>
+            <div id="nick2">{receivedNick}</div>
 
             <div id="notacja">
                 <div id="status"></div>
