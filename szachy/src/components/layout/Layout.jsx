@@ -16,7 +16,7 @@ let otworz_board;
             navigate("/gra");
             setTimeout(() => {
                 
-                let sentnick = document.getElementById("nick1");
+                let sentnick = document.getElementById("nick2");
                sentnick.innerHTML = "<span style='color: white'>" + nazwisko + "</span>";
             }, 100);
 

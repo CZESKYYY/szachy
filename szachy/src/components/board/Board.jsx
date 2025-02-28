@@ -11,7 +11,7 @@ receivedNick=window.enemy
     return (
        
         <>
-            <div id="nick1"><p></p></div>
+            <div id="nick1">{receivedNick}</div>
 
 
 
@@ -25,7 +25,7 @@ receivedNick=window.enemy
             
                
 
-            <div id="nick2">{receivedNick}</div>
+            <div id="nick2"></div>
 
             <div id="notacja">
                 <div id="status"></div>

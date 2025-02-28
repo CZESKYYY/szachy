@@ -16,7 +16,7 @@ module.exports = io => {
             }
             games[currentCode].players.push({
                 id: socket.id,
-                transNick: "podpinany gracz " + socket.id
+                transNick: "podpinany gracz " + nazwa
             });
 
 

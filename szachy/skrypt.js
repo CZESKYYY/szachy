@@ -62,7 +62,7 @@ function inicjalizacja() {
 
 
             var enemy = obj.przeciwnik;
-            let sentnick2 = document.getElementById("nick2");
+            let sentnick2 = document.getElementById("nick1");
             if(sentnick2){
             sentnick2.innerHTML = "<span style='color: white'>" + enemy + "</span>";
 
