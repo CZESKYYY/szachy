@@ -35,8 +35,10 @@ let otworz_board;
                     </ul>
 
                 </div>
+                <div id="kontent">
 
-                <Outlet />
+                    <Outlet />
+                </div>
             </div>
         
         </>
