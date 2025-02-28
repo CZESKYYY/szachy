@@ -19,6 +19,7 @@ function Login() {
 
     return (
         <>
+            <div id="wrapper2">
             <div id="formnick">
                 <form  >
                     <p id="nickp">Nick:</p>
@@ -32,6 +33,7 @@ function Login() {
 
                 <p id="wynik"></p>
 
+            </div>
             </div>
         </>
     )

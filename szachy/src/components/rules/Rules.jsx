@@ -3,8 +3,7 @@ import "./styl_zasszach.css";
 function Rules() {
     return (
             <>
-
-                <div id="container">
+                <div id="wrapper4">
                     <p>
                         
 
@@ -16,7 +15,6 @@ function Rules() {
                         <div id="pawn"><img src="./obrazki/pionek.webp" alt="pion"/><br /> W pierwszym ruchu ma on możliwość wykonania ruchu o dwa pola naprzód, o ile żadne z tych pól nie jest zajęte. Przez resztę gry porusza się o jedno pole naprzód. Pion nie może ruszać się do tyłu. Piony są jedynymi bierkami, które biją inaczej niż się poruszają. Mogą one zbić wrogą bierkę, jeśli znajduje się ona na jednym z dwóch pól sąsiadujących w poziomie z polem przed nimi. Piony mają również dwa szczególne posunięcia: en passant oraz promocję .</div>
                     </p>
                 </div>
-
             </>
         )
 }
