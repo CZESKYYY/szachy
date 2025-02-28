@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "./layout.css";
 import React, { useState, useEffect } from 'react';
 let otworz_board;
 
