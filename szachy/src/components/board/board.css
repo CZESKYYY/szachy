@@ -39,6 +39,19 @@ a{
     ". . . . ."; 
     min-height: 100vh;
 }
+
+.hide{
+    display: none !important;
+}
+#wait{
+text-align: center; 
+font-size: 200%;
+color:#1a1715;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+margin:auto;
+width: 50%;
+padding-top: 24%;
+}
 #nick1
 {
     grid-area: nick1;
@@ -46,7 +59,7 @@ a{
     width: 592px;
     border: 10px solid #1a1715;
     font-size: 30px;
-    color: #aa9584;
+    color: white;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     p
@@ -64,7 +77,7 @@ a{
     width: 592px;
     border: 10px solid #1a1715;
     font-size: 30px;
-    color: #aa9584;
+    color: white;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     p

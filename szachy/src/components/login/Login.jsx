@@ -10,6 +10,7 @@ function Login() {
         window.getSocket().emit("klientUstawiaNick", nazwisko, "test")
         console.log(nazwisko)
         event.preventDefault();
+        
     }
 
     if (!window.isJoined) {

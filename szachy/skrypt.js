@@ -21,6 +21,15 @@ window.getSocket = () => {
     return socket;
 }
 
+// socket.on("playerWait", function (playerWaitToken) {
+//     if (playerWaitToken === "a") {
+//     let wrapper_hide = document.getElementById("wrapper3");
+//     let wait_show = document.getElementById("wait");
+//     wrapper_hide.style.display = "none";
+//     wait_show.style.display = "block";
+//     }
+// })
+
 function inicjalizacja() {
     if (window.isInitialized) return
     window.isInitialized = true;
@@ -36,6 +45,8 @@ function inicjalizacja() {
         console.log(daneZServera);
         console.log("daneZServera");
     })
+
+
     socket.on("ustawkolor", function (obj) {
         let config=null;
         if (obj.color === "b") {
@@ -53,8 +64,12 @@ function inicjalizacja() {
                 shownNotation: true
             }
         }
+
             
         setTimeout(()=>{
+            document.querySelector("#wrapper3").classList.toggle("hide")
+            document.querySelector("#wait").classList.toggle("hide")
+
         let tmp = getboard(config)
         game = tmp.game
         board = tmp.board

@@ -1,4 +1,5 @@
 let games = {};
+var playerNumber = 3
 module.exports = io => {
 
     io.on('connection', socket => {
@@ -19,6 +20,11 @@ module.exports = io => {
                 transNick: "podpinany gracz " + nazwa
             });
 
+            // if (games[currentCode].players.length === 1) {
+            //     io.to(games[currentCode].players[0].id).emit("playerWait", {
+            //         playerWaitToken: 'a'
+            //     })
+            // }
 
             setTimeout(()=>{
                 if (games[currentCode].players.length === 2) {
@@ -28,7 +34,6 @@ module.exports = io => {
                 io.to(games[currentCode].players[0].id).emit("ustawkolor", {
                     color: 'w',
                     przeciwnik: games[currentCode].players[1].transNick
-                    
                 })
                 console.log("Ustawiam czary kolor ")
                 io.to(games[currentCode].players[1].id).emit("ustawkolor", {
@@ -46,6 +51,17 @@ module.exports = io => {
             socket.emit('serwerUstawiaNick', nazwa)
             console.log("own nick")
             console.log(games);
+
+            if(games[currentCode].players.length >= 3) {
+            io.to(games[currentCode].players[playerNumber].id).emit("ustawkolor", {
+                            color: 'g'
+                        }
+            )
+            playerNumber += 1;
+            console.log("guest token is sent")
+        }
+            
+
             }, 200)
             // Ensure both players are in the game before starting
             

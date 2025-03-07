@@ -12,8 +12,9 @@ receivedNick=window.enemy
   } 
     return (
 
-        <>       
-        <div id="wrapper3">
+        <>
+        <div id="wait">Oczekiwanie na drugiego gracza...</div>   
+        <div id="wrapper3" className="hide">
             <div id="nick1">{receivedNick}</div>
 
 
@@ -36,6 +37,7 @@ receivedNick=window.enemy
                 <div id="pgn"></div>
             </div>
             </div>
+            
         </>
 
     )

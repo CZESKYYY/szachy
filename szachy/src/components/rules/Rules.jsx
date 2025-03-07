@@ -4,6 +4,7 @@ function Rules() {
     return (
             <>
                 <div id="wrapper4">
+                    
                 <div id="container">
 
                         
