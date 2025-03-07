@@ -1,5 +1,4 @@
 let games = {};
-var playerNumber = 3
 module.exports = io => {
 
     io.on('connection', socket => {
@@ -53,12 +52,12 @@ module.exports = io => {
             console.log(games);
 
             if(games[currentCode].players.length >= 3) {
-            io.to(games[currentCode].players[playerNumber].id).emit("ustawkolor", {
+                let index=games[currentCode].players.length-1
+            io.to(games[currentCode].players[index].id).emit("ustawkolor", {
                             color: 'g'
                         }
             )
-            playerNumber += 1;
-            console.log("guest token is sent")
+            console.log("guest token is sent");
         }
             
 
