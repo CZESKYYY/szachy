@@ -56,7 +56,17 @@ function inicjalizacja() {
                  orientation: "black",
                 showNotation: true
             }
-        } else{
+            
+        }
+        else if (obj.color === "g"){
+            config = {
+                draggable: false,
+                position: 'start',
+                 orientation: "white",
+                showNotation: true
+            }
+        }
+        else{
             config = {
                 draggable: true,
                 position: 'start',
@@ -64,7 +74,8 @@ function inicjalizacja() {
                 shownNotation: true
             }
         }
-
+        
+      
             
         setTimeout(()=>{
             document.querySelector("#wrapper3").classList.toggle("hide")
@@ -100,6 +111,8 @@ function inicjalizacja() {
 
 
 }
+
+
 
 function getboard(config){
     
