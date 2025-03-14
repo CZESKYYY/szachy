@@ -69,6 +69,10 @@ module.exports = io => {
             socket.broadcast.emit('move', msg)
             console.log("emit ruchu")
         })
+        socket.on('fenToServer',function(pozycja){
+            console.log("AAAAAA TUTAJJJJJJJ"+pozycja)
+            socket.emit('fenToClient', pozycja)
+        })
         socket.on("newMove", function () {
             game.move(move);
             console.log("emit nowego ruchu ")

@@ -59,12 +59,13 @@ function inicjalizacja() {
             
         }
         else if (obj.color === "g"){
+            socket.on('fenToClient',function(pozycja){
             config = {
                 draggable: false,
-                position: 'start',
+                position: pozycja,
                  orientation: "white",
                 showNotation: true
-            }
+            }})
         }
         else{
             config = {
@@ -103,6 +104,7 @@ function inicjalizacja() {
         game.move(msg);
         board.position(game.fen());
         console.log("ruch klient");
+        socket.emit('fenToServer', $fen )
     })
 
     // update the board position after the piece snap
